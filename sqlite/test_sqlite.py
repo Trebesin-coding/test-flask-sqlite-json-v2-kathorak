@@ -12,17 +12,18 @@ film = "Titanic"
 hodnoceni = 5
 
 cursor.execute(
-    'INSERT INTO filmy (nazev_filmu, hodnoceni) VALUES (?, ?)', (film, hodnoceni)
+    "INSERT INTO filmy (nazev_filmu, hodnoceni) VALUES (?, ?)", (film, hodnoceni)
 )
 connection.commit()
 
 # Vypisování hodnocení
-cursor.execute(
-    "SELECT * FROM filmy"
-)
+cursor.execute("SELECT * FROM filmy")
 
 rows = cursor.fetchall()
 for row in rows:
     print(*row)
+
+# Hodnocení: toto neprintuje pouze první film
+
 
 connection.close()
