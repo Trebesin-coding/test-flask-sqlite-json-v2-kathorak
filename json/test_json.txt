@@ -1,3 +1,8 @@
 1. Z jakého programovacího jazyku původně vychází JSON? V jakých programovacích jazycích se dnes pracuje s JSON?
+Z JavaScriptu, ale dnes ho používá téměř každý jazyk.
+
 2. Jaké má JSON využití?
+Textový formát, zapisují se pomocí něj data.
+
 3. Jak vypadá JSON? Čemu je struktura podobná?
+Je to hodně objektů v sobě, podobá se Python dictionaries.
