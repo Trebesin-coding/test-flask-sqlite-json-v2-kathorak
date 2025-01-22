@@ -1,36 +1,28 @@
 import sqlite3
 
-# Proč je connection podtržené? Oprav chybu
+connection = sqlite3.connect("filmy.db")
 cursor = connection.cursor()
 
-# Co tu chybí?
-connection = sqlite3.connect("???")
-
-
-# Oprav vytváření tabulky - hodnocení je číselné
 cursor.execute(
-    """CREATE TABLE IF NOT EXISTS hodnoceni (
-        id PRIMARY KEY,
-        nazev_filmu,
-        hodnoceni
-    )
-    """
+    "CREATE TABLE IF NOT EXISTS filmy (id INTEGER PRIMARY KEY, nazev_filmu TEXT, hodnoceni INTEGER)"
 )
 
 # Zapsání do databáze
+film = "Titanic"
+hodnoceni = 5
 
-# tady by měl vepsat hodnocení do databáze - není potřeba využívat input, stačí zapsat statický údaj
-# cursor.???
-
+cursor.execute(
+    'INSERT INTO filmy (nazev_filmu, hodnoceni) VALUES (?, ?)', (film, hodnoceni)
+)
 connection.commit()
 
-
 # Vypisování hodnocení
-
-cursor.execute("???")
+cursor.execute(
+    "SELECT * FROM filmy"
+)
 
 rows = cursor.fetchall()
-
-# tady printne hodnocení filmu z databáze
+for row in rows:
+    print(*row)
 
 connection.close()
